@@ -27,7 +27,7 @@ const EditarBanco: React.FC = () => {
       <h1>Editar banco</h1>
       {banco && <Formulario initialData={banco} onSubmit={handleEdit} />}
     </div>
-  );
+  ); 
 };
 
 export default EditarBanco;
