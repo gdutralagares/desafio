@@ -34,7 +34,11 @@ const Lista: React.FC = () => {
 
   const handlePageChange = (page: number) => {
     fetchBancos(page);
+<<<<<<< Updated upstream
   };
+=======
+  }; 
+>>>>>>> Stashed changes
 
   useEffect(() => {
     fetchBancos();
