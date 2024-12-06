@@ -17,8 +17,18 @@ const Formulario: React.FC<FormularioProps> = ({ initialData, onSubmit }) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setBanco({ ...banco, [name]: name === 'account' || name === 'branch' || name === 'balance' ? parseInt(value) : value });
+  
+    const newValue =
+      name === 'account' || name === 'branch' || name === 'balance'
+        ? parseInt(value, 10) || 0 
+        : value;
+  
+    setBanco((prevBanco) => ({
+      ...prevBanco,
+      [name]: newValue,
+    }));
   };
+  
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -3,7 +3,7 @@ import { Button, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/m
 import { Link } from 'react-router-dom';
 import api from '../servicos/api';
 import { Banco } from '../tipos/Banco';
-import Paginacao from './Paginacao'; // Importa a componente de paginação
+import Paginacao from './Paginacao'; 
 
 const Lista: React.FC = () => {
   const [bancos, setBancos] = useState<Banco[]>([]);
@@ -12,7 +12,7 @@ const Lista: React.FC = () => {
   const fetchBancos = async (pageNumber = 0) => {
     try {
       const response = await api.get(`/?PageSize=10&PageNumber=${pageNumber}`);
-      console.log('Resposta da API:', response.data); // Debug
+      console.log('Resposta da API:', response.data); 
       setBancos(response.data.result || []);
       setPagination({
         totalPages: response.data.pagination.totalPages,
@@ -76,7 +76,6 @@ const Lista: React.FC = () => {
         </TableBody>
       </Table>
 
-      {/* Componente de paginação */}
       <Paginacao
         currentPage={pagination.pageNumber}
         totalPages={pagination.totalPages}
